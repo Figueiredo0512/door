@@ -6,6 +6,22 @@
   <title>Página com Bootstrap</title>
   <!-- Inclua as referências ao Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <script>
+    function ligarRele() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/door/?state=on", true);
+      xhr.send();
+    }
+
+    function desligarRele() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/door/?state=off", true);
+      xhr.send();
+    }
+  </script>
+
+
 </head>
 <body>
   <div class="container mt-5">
@@ -13,8 +29,8 @@
       <div class="col-md-6">
         <h1 class="text-center">Controle de Porta</h1>
         <div class="text-center mt-4">
-          <button id="ligaBtn" class="btn btn-primary">Abrir</button>
-          <button id="desligaBtn" class="btn btn-danger">Fechar</button>
+          <button id="ligaBtn" onclick="ligarRele()" class="btn btn-primary">Abrir</button>
+          <button id="desligaBtn" onclick="desligarRele()" class="btn btn-danger">Fechar</button>
         </div>
       </div>
     </div>
